@@ -1,0 +1,44 @@
+.to-top {
+  position: fixed;
+  right: clamp(16px, 4vw, var(--space-7));
+  bottom: clamp(16px, 4vw, var(--space-7));
+  width: 46px;
+  height: 46px;
+  border-radius: 50%;
+  border: 1px solid var(--border);
+  background: var(--surface);
+  color: var(--ink-600);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  box-shadow: 0 12px 24px -14px hsl(var(--shadow-color) / 0.5);
+  opacity: 0;
+  transform: translateY(8px);
+  pointer-events: none;
+  transition: opacity 0.25s ease, transform 0.25s ease, border-color 0.2s ease, color 0.2s ease;
+  z-index: 40;
+}
+
+.to-top.visible {
+  opacity: 1;
+  transform: translateY(0);
+  pointer-events: auto;
+}
+
+.to-top:hover {
+  border-color: var(--border-strong);
+  color: var(--ink-900);
+}
+
+.to-top svg {
+  width: 18px;
+  height: 18px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .to-top {
+    transition: opacity 0.15s linear;
+    transform: none;
+  }
+}
