@@ -1,0 +1,109 @@
+.pricing-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: var(--grid-gap);
+  align-items: stretch;
+}
+
+.pricing-card {
+  position: relative;
+}
+
+.pricing-card.highlighted {
+  border-color: var(--accent);
+  box-shadow: 0 0 0 1px var(--accent);
+}
+
+.pricing-badge {
+  position: absolute;
+  top: var(--card-pad);
+  right: var(--card-pad);
+  font-family: "JetBrains Mono", monospace;
+  font-size: 0.66rem;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  padding: 4px 10px;
+  border-radius: 999px;
+  background: var(--accent);
+  color: var(--accent-ink);
+}
+
+.pricing-amount {
+  display: flex;
+  align-items: baseline;
+  gap: 6px;
+  margin: var(--space-2) 0 var(--space-3);
+}
+
+.pricing-price {
+  font-family: "Bricolage Grotesque", sans-serif;
+  font-weight: 650;
+  font-size: 2.4rem;
+  letter-spacing: -0.02em;
+  font-variant-numeric: tabular-nums;
+}
+
+.pricing-period {
+  font-family: "JetBrains Mono", monospace;
+  font-size: 0.85rem;
+  color: var(--ink-400);
+}
+
+.pricing-features {
+  list-style: none;
+  margin: 0 0 var(--space-6);
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-3);
+  font-size: 0.88rem;
+  color: var(--ink-600);
+}
+
+.pricing-features li {
+  display: flex;
+  align-items: flex-start;
+  gap: var(--space-2);
+}
+
+.pricing-features svg {
+  width: 16px;
+  height: 16px;
+  color: var(--accent);
+  flex-shrink: 0;
+  margin-top: 2px;
+}
+
+.pricing-cta {
+  margin-top: auto;
+  width: 100%;
+  padding: 12px var(--space-4);
+  border-radius: 999px;
+  font-family: "JetBrains Mono", monospace;
+  font-size: 0.85rem;
+  border: 1px solid var(--border);
+  background: var(--surface);
+  color: var(--ink-900);
+  cursor: pointer;
+  transition: border-color 0.2s ease, background 0.2s ease, opacity 0.2s ease;
+}
+
+.pricing-cta:hover {
+  border-color: var(--border-strong);
+}
+
+.highlighted .pricing-cta {
+  background: var(--accent);
+  color: var(--accent-ink);
+  border-color: var(--accent);
+}
+
+.highlighted .pricing-cta:hover {
+  opacity: 0.9;
+}
+
+@media (max-width: 880px) {
+  .pricing-grid {
+    grid-template-columns: 1fr;
+  }
+}

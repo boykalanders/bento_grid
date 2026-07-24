@@ -3,10 +3,6 @@ import { NavLink } from "react-router-dom";
 import { useTheme } from "../hooks/useTheme";
 import "./Topbar.css";
 
-function stopPlaceholder(event) {
-  event.preventDefault();
-}
-
 export default function Topbar() {
   const { theme, toggle } = useTheme();
   const [menuOpen, setMenuOpen] = useState(false);
@@ -60,12 +56,8 @@ export default function Topbar() {
         <NavLink to="/" end>
           Product
         </NavLink>
-        <a href="#docs" onClick={stopPlaceholder}>
-          Docs
-        </a>
-        <a href="#pricing" onClick={stopPlaceholder}>
-          Pricing
-        </a>
+        <NavLink to="/docs">Docs</NavLink>
+        <NavLink to="/pricing">Pricing</NavLink>
         <NavLink to="/blog">Blog</NavLink>
       </nav>
 

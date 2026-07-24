@@ -216,3 +216,86 @@ img {
     transform: none;
   }
 }
+
+/* ---------- shared code block + copy button ---------- */
+.code-block {
+  background: var(--surface-inset);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-sm);
+  padding: var(--space-4);
+  font-family: "JetBrains Mono", monospace;
+  font-size: 0.74rem;
+  line-height: 1.6;
+  color: var(--ink-600);
+  position: relative;
+}
+
+.code-block pre {
+  margin: 0;
+  padding-right: 64px;
+  font: inherit;
+  color: inherit;
+  white-space: pre-wrap;
+  word-break: break-word;
+}
+
+.code-block .kw {
+  color: var(--accent);
+}
+
+.code-block .str {
+  color: var(--warn);
+}
+
+.copy-btn {
+  position: absolute;
+  top: var(--space-2);
+  right: var(--space-2);
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  font-family: "JetBrains Mono", monospace;
+  font-size: 0.66rem;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 999px;
+  padding: 5px 9px 5px 8px;
+  color: var(--ink-500);
+  cursor: pointer;
+  transition: color 0.2s ease, border-color 0.2s ease;
+}
+
+.copy-btn:hover {
+  color: var(--ink-900);
+  border-color: var(--border-strong);
+}
+
+.copy-btn svg {
+  width: 11px;
+  height: 11px;
+}
+
+/* ---------- shared key/value mono list ---------- */
+.token-list {
+  font-family: "JetBrains Mono", monospace;
+  font-size: 0.76rem;
+  color: var(--ink-500);
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-2);
+}
+
+.token-list b {
+  color: var(--ink-900);
+  font-weight: 500;
+}
+
+/* ---------- inline code, outside .code-block ---------- */
+code {
+  font-family: "JetBrains Mono", monospace;
+  font-size: 0.85em;
+  background: var(--surface-inset);
+  border: 1px solid var(--border);
+  border-radius: 4px;
+  padding: 0.1em 0.4em;
+}
