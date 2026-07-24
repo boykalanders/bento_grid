@@ -4,6 +4,7 @@
   justify-content: space-between;
   padding-top: var(--space-7);
   padding-bottom: var(--space-3);
+  position: relative;
 }
 
 .wordmark {
@@ -49,7 +50,8 @@
   gap: var(--space-4);
 }
 
-.theme-toggle {
+.theme-toggle,
+.menu-toggle {
   display: flex;
   align-items: center;
   justify-content: center;
@@ -63,18 +65,79 @@
   transition: border-color 0.2s ease, color 0.2s ease;
 }
 
-.theme-toggle:hover {
+.theme-toggle:hover,
+.menu-toggle:hover {
   border-color: var(--border-strong);
   color: var(--ink-900);
 }
 
-.theme-toggle svg {
+.theme-toggle svg,
+.menu-toggle svg {
   width: 16px;
   height: 16px;
 }
 
+.menu-toggle {
+  display: none;
+}
+
+.nav-backdrop {
+  display: none;
+}
+
 @media (max-width: 880px) {
+  .menu-toggle {
+    display: flex;
+  }
+
+  /* below the breakpoint the inline nav becomes a right-side sidebar,
+     opened by .menu-toggle instead of disappearing entirely */
   .nav {
-    display: none;
+    position: fixed;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    width: min(78vw, 300px);
+    flex-direction: column;
+    align-items: flex-start;
+    gap: var(--space-6);
+    background: var(--surface);
+    border-left: 1px solid var(--border);
+    padding: var(--space-9) var(--space-6);
+    font-size: 1rem;
+    box-shadow: -24px 0 48px -24px hsl(var(--shadow-color) / 0.5);
+    transform: translateX(100%);
+    transition: transform 0.3s cubic-bezier(0.2, 0.7, 0.2, 1);
+    z-index: 60;
+  }
+
+  .nav.open {
+    transform: translateX(0);
+  }
+
+  .nav-backdrop {
+    display: block;
+    position: fixed;
+    inset: 0;
+    background: hsl(var(--shadow-color) / 0.35);
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.3s ease;
+    z-index: 50;
+  }
+
+  .nav-backdrop.open {
+    opacity: 1;
+    pointer-events: auto;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .nav {
+    transition: none;
+  }
+
+  .nav-backdrop {
+    transition: none;
   }
 }

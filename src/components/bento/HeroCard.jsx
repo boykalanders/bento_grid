@@ -2,9 +2,9 @@ import { useState } from "react";
 import { useSpotlight } from "../../hooks/useSpotlight";
 
 const CLIENTS = [
-  { id: "gmail", label: "Gmail", flag: "clips after 102kb" },
-  { id: "outlook", label: "Outlook", flag: "Word rendering engine" },
-  { id: "apple", label: "Apple Mail", flag: "auto dark mode" },
+  { id: "gmail", label: "Gmail", flag: "Truncates over 102kb" },
+  { id: "outlook", label: "Outlook", flag: "Uses Word's rendering engine" },
+  { id: "apple", label: "Apple Mail", flag: "Auto-dark, ignores your site theme" },
 ];
 
 export default function HeroCard() {
@@ -37,26 +37,32 @@ export default function HeroCard() {
 
       <div className="preview-stage">
         <div className="preview-chrome">
-          <span></span>
-          <span></span>
-          <span></span>
+          <span className="chrome-dot"></span>
+          <span className="chrome-dot"></span>
+          <span className="chrome-dot"></span>
           <span className="flag">{active.flag}</span>
         </div>
-        <div className="preview-email" data-client={client}>
-          <div className="brand-row">
-            <i></i>Inkline
-          </div>
-          <div className="headline">Your March receipts are ready</div>
-          <div className="lines">
-            <div className="line w1"></div>
-            <div className="line w2"></div>
-          </div>
-          <div className="cta">View receipts →</div>
-          <div className="clip-flag">
-            <i></i>Message clipped at 102kb
+        <div className="preview-body">
+          <div className="preview-email" data-client={client}>
+            <div className="brand-row">
+              <i></i>Inkline
+            </div>
+            <div className="headline">Your March receipts are ready</div>
+            <div className="lines">
+              <div className="line w1"></div>
+              <div className="line w2"></div>
+            </div>
+            <div className="cta">View receipts →</div>
+            <div className="clip-flag">
+              <i></i>Message clipped at 102kb
+            </div>
           </div>
         </div>
       </div>
+      <p className="hero-caption">
+        This preview shows how each client actually renders the message, including Apple Mail's automatic dark
+        inversion. It doesn't follow the theme toggle above.
+      </p>
     </article>
   );
 }
